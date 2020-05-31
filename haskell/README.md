@@ -1,0 +1,1 @@
+Learning Haskell mainly through Real World Haskell http://book.realworldhaskell.org
