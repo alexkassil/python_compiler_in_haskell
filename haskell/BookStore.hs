@@ -24,6 +24,7 @@ data BillingInfo = CreditCard CardNumber CardHolder Address
 instance Show (a -> b) where
   show f = "<function>"
 -- Defines selectes customerID, customerName, etc automatically
+
 data Customer = Customer {
       customerID      :: CustomerID
     , customerName    :: String

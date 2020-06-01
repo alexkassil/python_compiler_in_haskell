@@ -52,3 +52,10 @@ main = let lists = [[1],[1, 2],[1, 2, 3],[1..100],[]]
         print ( map testIsPalindromeTrue ((map toPalindrome lists) ++ [[1], [1, 2, 1], [1, 2, 3, 4, 3, 2, 1]]) )
         print ( map testIsPalindromeFalse [[1, 2], [2, 1], [1, 2, 3], [1, 2, 3, 4, 2, 1] ] )
 
+-- 9. Add point data type and Direction data type
+data Point = Point {x :: Double, y :: Double}
+             deriving (Show, Eq)
+
+data Direction = L | S | R
+                 deriving (Enum, Show, Eq)
+
