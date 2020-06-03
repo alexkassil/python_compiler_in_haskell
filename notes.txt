@@ -1,0 +1,1 @@
+My goal is to have a haskell program that takes in single decimal digits from standard in and prints them
