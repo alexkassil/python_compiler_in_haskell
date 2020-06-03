@@ -1,1 +1,3 @@
-My goal is to have a haskell program that takes in single decimal digits from standard in and prints them
+[x] Single digit + & - calculator
+[] Multi digit
+[] * & / support
