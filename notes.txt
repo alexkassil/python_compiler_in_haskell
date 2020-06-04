@@ -1,3 +1,15 @@
+-- Lexer
+[] Lexes literals
+[] Lexes assign statements
+[] Lexes white space
+[] Errors when parsing
+[] Helpful errors when parsing
+[] Start Lexer Tests
+[] Text lexer with flex implementation
+[] Randomized testing using flex lexer
+-- Parser
+[] Create ast from lexed input
+-- Interpreter
 [x] Single digit + & - calculator
 [] Multi digit
 [] * & / support
