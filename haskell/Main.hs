@@ -1,3 +1,6 @@
 import JSON
 
-main = print (JObject [("foo", JNumber 1), ("bar", JBool False)])
+main = do
+  print example
+  print "\n"
+  render example

@@ -4,7 +4,9 @@ module JSON (JValue(..),
              getDouble,
              getObject,
              getArray,
-             isNull) where
+             isNull,
+             render,
+             example) where
 
 data JValue = JString String
             | JNumber Double
@@ -48,7 +50,8 @@ example = JObject [("baz",
 genRender :: JValue -> String
 genRender (JString s) = show s
 genRender (JNumber d) = show d
-genRender (JBool b) = show b
+genRender (JBool True) = "true"
+genRender (JBool False) = "false"
 genRender JNull     = "null"
 genRender (JArray []) = "[]"
 genRender (JArray (x:xs)) = "[" ++ (genRender x) ++ (genRenderArrayHelper xs) ++ "]"
