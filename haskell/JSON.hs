@@ -6,7 +6,10 @@ module JSON (JValue(..),
              getArray,
              isNull,
              render,
-             example) where
+             example,
+             format) where
+
+import Data.List (intercalate)
 
 data JValue = JString String
             | JNumber Double
@@ -46,6 +49,7 @@ example = JObject [("baz",
                        JNumber 1,
                        JNumber 2.5
                        ])]
+simple = JObject [("foo", JNumber 1), ("bar", JBool False)]
 
 genRender :: JValue -> String
 genRender (JString s) = show s
@@ -71,4 +75,18 @@ genRenderObjectHelper (x:xs) = "," ++ (show (fst x)) ++ ":" ++ (genRender (snd x
 render :: JValue -> IO()
 render x = putStrLn $ genRender x
 
+format :: JValue -> IO()
+format x = putStrLn $ genFormat x 0
 
+genFormat :: JValue -> Int -> String
+genFormat (JString s) n = replicate n ' ' ++ show s
+genFormat (JNumber d) n = replicate n ' ' ++ show d
+genFormat (JBool True) n = replicate n ' ' ++ "true"
+genFormat (JBool False) n = replicate n ' ' ++ "false"
+genFormat (JNull) n = replicate n ' ' ++ "null"
+
+genFormat (JObject o) n = replicate n ' ' ++ "{\n" ++ pairs o ++ "\n" ++ replicate n ' ' ++ "}"
+  where pairs ps = intercalate ",\n" (map genFormatPair ps)
+        genFormatPair (k, v) = replicate (n + 1) ' ' ++ show k ++ ":\n" ++ genFormat v (n + 1)
+
+genFormat (JArray a) n = replicate n ' ' ++ "[\n" ++ intercalate ",\n" (map (\x -> genFormat x (n + 1)) a) ++ "\n" ++ replicate n ' ' ++ "]"

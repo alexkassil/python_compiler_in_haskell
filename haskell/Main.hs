@@ -2,5 +2,7 @@ import JSON
 
 main = do
   print example
-  print "\n"
+  putStrLn ""
   render example
+  putStrLn ""
+  format example
