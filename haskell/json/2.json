@@ -1,0 +1,23 @@
+{
+ "baz":
+ [
+  {
+   "foo":
+   1.0,
+   "bar":
+   false
+  },
+  {
+   "foo":
+   1.0,
+   "bar":
+   false
+  },
+  true,
+  false,
+  null,
+  "1",
+  1.0,
+  2.5
+ ]
+}
