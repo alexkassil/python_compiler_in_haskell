@@ -6,6 +6,7 @@ module JSON (JValue(..),
              getArray,
              isNull,
              render,
+             genRender,
              example,
              format) where
 
