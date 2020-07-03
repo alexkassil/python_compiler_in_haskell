@@ -1,4 +1,4 @@
-import JSON
+rsimport JSON
 import PrettyJSON
 
 main = do
