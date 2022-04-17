@@ -9,7 +9,7 @@ main = do
   let tokens = getTokens input
   let result = eval tokens
   -- Print
-  putStrLn (show result)
+  print result
   -- Loop
   main
 
@@ -21,7 +21,7 @@ eval (x:op:xs)
 
 getTokens :: String -> [String]
 getTokens "" = []
-getTokens x = [getToken x] ++ (getTokens (skipToken x))
+getTokens x = getToken x : getTokens (skipToken x)
 
 getToken :: String -> String
 getToken (x:xs)
